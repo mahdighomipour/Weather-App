@@ -15,24 +15,26 @@
 	<body>
 		<div class="container">
 			<div class="weather-app">
-				<div class="row">
-					<div class="col-9">
-						<input
-							type="search"
-							maxlength="60"
-							value=""
-							placeholder="Enter The City"
-							autofocus="on"
-							id="search-name-form" />
+				<form class="searchForm">
+					<div class="row">
+						<div class="col-9">
+							<input
+								type="search"
+								maxlength="60"
+								value=""
+								placeholder="Enter The City"
+								autofocus="on"
+								id="search-name-form" />
+						</div>
+						<div class="col-3">
+							<input type="submit" value="Search" id="search-btn" />
+						</div>
 					</div>
-					<div class="col-3">
-						<input type="button" value="Search" />
-					</div>
-				</div>
-				<h1>Tehran</h1>
+				</form>
+				<h1 id="cityName">Tehran</h1>
 				<ul>
 					<li>today</li>
-					<li>Clear</li>
+					<li id="description">Clear</li>
 				</ul>
 				<div class="row">
 					<div class="col-6">
@@ -40,7 +42,7 @@
 							<img
 								src="https://ssl.gstatic.com/onebox/weather/64/fog.png"
 								alt="Iran Weather" />
-							<strong>20</strong>
+							<strong id="cityCurrentTemp">20</strong>
 							<span class="units">
 								<a href="#">°C</a> | <a href="#">°F</a>
 							</span>
@@ -48,8 +50,8 @@
 					</div>
 					<div class="col-6">
 						<ul>
-							<li>Humanity</li>
-							<li>Wind</li>
+							<li id="humidity">Humanity</li>
+							<li id="wind">Wind</li>
 						</ul>
 					</div>
 				</div>
@@ -61,6 +63,7 @@
 				by Mahdi Ghomipour</span
 			>
 		</div>
+		<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 		<script src="src/app.js"></script>
 	</body>
 </html>
