@@ -31,3 +31,18 @@ h1 {
 	margin-bottom: 0px;
 	line-height: 28px;
 }
+.current-weather-detail img {
+	margin-right: 10px;
+	height: 64px;
+	width: 64px;
+}
+.current-weather-detail strong {
+	font-size: 64px;
+	font-weight: 400;
+	line-height: 1;
+}
+.current-weather-detail .units {
+	position: relative;
+	font-size: 16px;
+	text-decoration: none;
+}
