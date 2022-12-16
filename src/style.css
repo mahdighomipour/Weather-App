@@ -1,3 +1,33 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.container,
+.weather-app {
+	margin: 0 auto;
+	max-width: 600px;
+}
 .weather-app {
 	border: 1px solid gray;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 20px;
+	box-shadow: 2px 2px 5px rgb(174, 174, 173);
+}
+ul {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+li {
+	margin-bottom: 0;
+	line-height: 16px;
+}
+
+#search-name-form {
+	max-width: 75%;
+	margin-bottom: 10px;
+}
+h1 {
+	margin-bottom: 0px;
+	line-height: 28px;
 }
