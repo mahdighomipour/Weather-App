@@ -14,7 +14,6 @@ function toInsert(showCity) {
 	let iconSource = `http://openweathermap.org/img/wn/${showCity.data.weather[0].icon}@2x.png`;
 	iconSrc.setAttribute("src", iconSource);
 	iconSrc.setAttribute("alt", showCity.data.weather[0].description);
-	console.log(iconSource);
 }
 
 function start(event) {
