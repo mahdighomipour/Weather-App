@@ -47,3 +47,24 @@ h1 {
 	font-size: 16px;
 	text-decoration: none;
 }
+.units a {
+	text-decoration: none;
+	color: rgb(73, 16, 219);
+	cursor: pointer;
+}
+.units .deactive {
+	text-decoration: none;
+	color: rgb(0, 0, 0);
+}
+.units .deactive:hover {
+	cursor: default;
+	color: rgb(0, 0, 0);
+}
+.units .active {
+	text-decoration: none;
+	color: rgb(40, 58, 225);
+}
+.units .active:hover {
+	cursor: pointer;
+	color: rgb(40, 58, 225);
+}

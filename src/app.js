@@ -28,5 +28,36 @@ function start(event) {
 		.get(`${endPiont}${cityName}&appid=${apiKey}&units=${units}`)
 		.then(toInsert);
 }
+
+function tocelsius(event) {
+	event.preventDefault();
+	activeLinkF.classList.remove("deactive");
+	activeLinkF.classList.add("active");
+	activeLinkC.classList.remove("active");
+	activeLinkC.classList.add("deactive");
+	let currentTempTo = document.querySelector("#cityCurrentTemp").innerHTML;
+	let currentTempToInsert = document.querySelector("#cityCurrentTemp");
+	let tofc = Math.round(((currentTempTo - 32) * 5) / 9);
+	currentTempToInsert.innerHTML = `${tofc}`;
+}
+function tofahrenheit(event) {
+	event.preventDefault();
+	activeLinkC.classList.remove("deactive");
+	activeLinkC.classList.add("active");
+	activeLinkF.classList.remove("active");
+	activeLinkF.classList.add("deactive");
+	let currentTempTo = document.querySelector("#cityCurrentTemp").innerHTML;
+	let currentTempToInsert = document.querySelector("#cityCurrentTemp");
+	let tofc = Math.round((currentTempTo * 9) / 5 + 32);
+	currentTempToInsert.innerHTML = `${tofc}`;
+}
+
 let clickBtn = document.querySelector(".searchForm");
 clickBtn.addEventListener("submit", start);
+let clickCelsiusLink = document.querySelector("#celsiusLink");
+let clickFahrenheitLink = document.querySelector("#fahrenheitLink");
+clickCelsiusLink.addEventListener("click", tocelsius);
+clickFahrenheitLink.addEventListener("click", tofahrenheit);
+
+let activeLinkF = document.querySelector("#fahrenheitLink");
+let activeLinkC = document.querySelector("#celsiusLink");
