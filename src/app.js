@@ -19,8 +19,8 @@ function toInsertForecast(response) {
 				data.weather[0].icon
 			}@2x.png" alt="" width="45"/>
 			</div>
-			<span class="min">${Math.round(data.temp.min)}</span>
-			<span class="max">${Math.round(data.temp.max)}</span>
+			<span class="min">${Math.round(data.temp.min)}°</span>
+			<span class="max">${Math.round(data.temp.max)}°</span>
 			</div>`;
 		}
 	});
@@ -29,13 +29,16 @@ function toInsertForecast(response) {
 }
 
 function toInsert(showCity) {
+	let currentDate = formatDay(showCity.data.dt);
 	let insertCity = document.querySelector("#cityCurrentTemp");
 	let cityName = document.querySelector("#cityName");
+	let currebtDateInsert = document.querySelector("#currentDate");
 	let hem = document.querySelector("#humidity");
 	let wind = document.querySelector("#wind");
 	let desc = document.querySelector("#description");
 	let currentTemp = Math.round(showCity.data.main.temp);
 	let iconSrc = document.querySelector("#icon");
+	currebtDateInsert.innerHTML = `${currentDate}`;
 	insertCity.innerHTML = `${currentTemp}`;
 	hem.innerHTML = `${showCity.data.main.humidity}`;
 	wind.innerHTML = `${showCity.data.wind.speed}`;
@@ -46,8 +49,9 @@ function toInsert(showCity) {
 	iconSrc.setAttribute("alt", showCity.data.weather[0].description);
 	lat = showCity.data.coord.lat;
 	lon = showCity.data.coord.lon;
+	console.log(units);
 
-	let end2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+	let end2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
 	axios.get(end2).then(toInsertForecast);
 }
 
@@ -56,14 +60,14 @@ function start(event) {
 	let city3 = document.querySelector("#search-name-form");
 	let cityName = city3.value;
 	let endPiont = "https://api.openweathermap.org/data/2.5/weather?q=";
-	let units = "metric";
+	console.log(units);
 	axios
 		.get(`${endPiont}${cityName}&appid=${apiKey}&units=${units}`)
 		.then(toInsert);
 }
 
-function tocelsius(event) {
-	event.preventDefault();
+function tocelsius(event1) {
+	event1.preventDefault();
 	activeLinkF.classList.remove("deactive");
 	activeLinkF.classList.add("active");
 	activeLinkC.classList.remove("active");
@@ -73,8 +77,8 @@ function tocelsius(event) {
 	let tofc = Math.round(((currentTempTo - 32) * 5) / 9);
 	currentTempToInsert.innerHTML = `${tofc}`;
 }
-function tofahrenheit(event) {
-	event.preventDefault();
+function tofahrenheit(event2) {
+	event2.preventDefault();
 	activeLinkC.classList.remove("deactive");
 	activeLinkC.classList.add("active");
 	activeLinkF.classList.remove("active");
@@ -95,3 +99,4 @@ clickFahrenheitLink.addEventListener("click", tofahrenheit);
 let activeLinkF = document.querySelector("#fahrenheitLink");
 let activeLinkC = document.querySelector("#celsiusLink");
 let apiKey = "62231151ce343c4d68652e1617efc22f";
+let units = "metric";

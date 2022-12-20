@@ -18,10 +18,12 @@ ul {
 	list-style: none;
 	padding: 0px;
 	margin: 0px;
+	margin-top: 5px;
 }
 li {
 	margin-bottom: 0;
 	line-height: 16px;
+	margin-top: 5px;
 }
 
 #search-name-form {
