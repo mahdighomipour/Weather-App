@@ -1,8 +1,7 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
 }
-div {
-}
+
 .container,
 .weather-app {
 	margin: 0 auto;
@@ -70,6 +69,31 @@ h1 {
 	color: rgb(40, 58, 225);
 }
 .forecast-div {
+	margin-top: 30px;
+	text-align: center;
+	font-size: 16px;
 	margin: 0 auto;
 	color: brown;
+}
+
+.min,
+.max,
+.dateForecast {
+	text-align: center;
+	margin: o auto;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.dateForecast {
+	color: rgba(0, 0, 0, 0.562);
+	font-weight: bold;
+	text-shadow: 1px 1px 0.5px rgb(146, 140, 140);
+}
+.min {
+	color: blue;
+	text-shadow: 1px 1px 2px rgb(110, 114, 118);
+}
+.max {
+	color: rgb(200, 11, 52);
+	text-shadow: 1px 1px 2px rgb(110, 114, 118);
 }

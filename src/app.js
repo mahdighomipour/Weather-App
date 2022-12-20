@@ -1,18 +1,31 @@
+function formatDay(time) {
+	let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+	let date = new Date(time * 1000);
+	let day = date.getDay();
+	return days[day];
+}
 function toInsertForecast(response) {
-	let days = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed", "Thu"];
+	let forecast = response.data.daily;
 	let insertToDivForecast = document.querySelector("#forecastSection");
 	let forecastObject = `<div class="row">`;
-	days.forEach(function (day) {
-		forecastObject += `<div class="col-2">
-			${day}
-			<img src="https://ssl.gstatic.com/onebox/weather/64/fog.png" alt="" />
-			<span class="min">min</span>
-			<span class="max">max</span>
+	forecast.forEach(function (data, index) {
+		if (index < 6) {
+			forecastObject += `<div class="col-2">
+			<div class="dateForecast">
+			${formatDay(data.dt)}<hr>
+			</div>
+			<div class="forecastIcon">
+			<img src="http://openweathermap.org/img/wn/${
+				data.weather[0].icon
+			}@2x.png" alt="" width="45"/>
+			</div>
+			<span class="min">${Math.round(data.temp.min)}</span>
+			<span class="max">${Math.round(data.temp.max)}</span>
 			</div>`;
+		}
 	});
 	forecastObject += `</div>`;
 	insertToDivForecast.innerHTML = forecastObject;
-	console.log(response.data.daily);
 }
 
 function toInsert(showCity) {
@@ -34,7 +47,7 @@ function toInsert(showCity) {
 	lat = showCity.data.coord.lat;
 	lon = showCity.data.coord.lon;
 
-	let end2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+	let end2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 	axios.get(end2).then(toInsertForecast);
 }
 
