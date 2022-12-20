@@ -1,7 +1,8 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
 }
-
+div {
+}
 .container,
 .weather-app {
 	margin: 0 auto;
@@ -67,4 +68,8 @@ h1 {
 .units .active:hover {
 	cursor: pointer;
 	color: rgb(40, 58, 225);
+}
+.forecast-div {
+	margin: 0 auto;
+	color: brown;
 }
