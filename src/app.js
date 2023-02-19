@@ -1,4 +1,5 @@
-import toInsert from `./fetch.js`
+import { toInsert } from `./fetch.js`
+
 function formatDay(time) {
 	let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 	let date = new Date(time * 1000);
