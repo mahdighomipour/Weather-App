@@ -1,4 +1,5 @@
-import { toInsert } from `./fetch.js`
+// import { toInsert } from `./fetch.js`
+import { toInsert } from "./fetch";
 
 function formatDay(time) {
 	let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -29,8 +30,6 @@ function toInsertForecast(response) {
 	forecastObject += `</div>`;
 	insertToDivForecast.innerHTML = forecastObject;
 }
-
-
 
 function start(event) {
 	event.preventDefault();
